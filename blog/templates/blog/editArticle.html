@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="{% url 'blog:edit_action' %}" method="post">
+    {% csrf_token %}
+{#    过滤器#}
+     <input type="hidden" value="{{ article.id | default:'0'}}" name="article_id">
+     Title:<input type="text" name="title" value="{{ article.title }}"/><br>
+     Content:<input type="text" name="content" value="{{ article.content }}"/><br>
+     <input type="submit">
+
+{#    {% if article %}#}
+{#        <input type="hidden" value="{{ article.id }}" name="article_id">#}
+{#        Title:<input type="text" name="title" value="{{ article.title }}"/><br>#}
+{#        Content:<input type="text" name="content" value="{{ article.content }}"/><br>#}
+{#        <input type="submit">#}
+{#    {% else %}#}
+{#        <input type="hidden" value="0" name="article_id">#}
+{#        Title:<input type="text" name="title"/><br>#}
+{#        Content:<input type="text" name="content"/><br>#}
+{#    <input type="submit">#}
+{#    {% endif %}#}
+</form>
+</body>
+</html>
